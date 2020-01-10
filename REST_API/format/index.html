@@ -27,22 +27,19 @@
         </tr>
         <tr>
             <td>
-                <form>
-                    <label>정보 바꿀 사람<input type="text" name="name" id="name"></label>
-                    <label>나이수정<input type="text" name="age" id="age"></label>
-                    <button onclick="getInform();">수정</button>
-                </form>
+                <label>정보 바꿀 사람<input type="text" name="name" id="name"></label>
+                <label>나이수정<input type="text" name="age" id="age"></label>
+                <button onclick="putInform();">수정</button>
             </td>
         </tr>
         <tr>
             <td>
-                <form action="/delete" method="delete">
-                    <input type="submit" value="삭제">
-                </form>
+                <label>정보삭제<input type="text" name="age" id="erase"></label>
+                <button onclick="deleteInform();">삭제</button>
             </td>
         </tr>
     </table>
-    <script src='/REST_API/restFront.js'></script>
+    <script src='restFront.js'></script>
     
    
    

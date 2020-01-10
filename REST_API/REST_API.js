@@ -3,6 +3,7 @@ const http = require('http');
 const bodyParser = require('body-parser');
 const static = require('serve-static');
 const path = require('path');
+const Front = require('./format/restFront.js');
 
 const app = express();
 const router = express.Router();
@@ -49,15 +50,29 @@ router.route('/login').post((req, res) => {
 
 router.route('/change').put((req, res) => {
     console.log('/change 호출');
-    const name = req.params.name;
-    const age = req.params.age;
-    res.writeHead('200', {'Content-Type':'text/html; charset=utf-8'});
+    const name = req.body.name;
+    const age = req.body.age;
+    session.forEach(element => {
+        if(element.name === name) {
+            element.age = age;
+        }        
+    });
     res.end();
 });
 
-router.route('/delete').put((req, res) => {
+router.route('/delete').delete((req, res) => {
     console.log('/delete 호출');
-});
+    const erase = req.body.erase;
+    let eraseindex;
+    session.forEach((element, index, array) => {
+        if(element.name === erase) {
+            eraseindex = index;
+        }
+    });
+    if(eraseindex !== -1) {
+        session.splice(eraseindex, 1);
+    }
+})
 
 http.createServer(app).listen(4000, () => {
     console.log('4000에서 대기 중');
