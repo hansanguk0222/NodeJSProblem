@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>REST_API</title>
+</head>
+<body>
+    <table border="1px">
+        <tr>
+            <td>
+                <form action="/show" method="GET">
+                    <input type="submit" value="명단 보기">
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/login" method="POST">
+                    <label>이름<input type="text" name="name"></label>
+                    <label>나이<input type="text" name="age"></label>
+                    <input type="submit" value='첫 등록'>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form>
+                    <label>정보 바꿀 사람<input type="text" name="name" id="name"></label>
+                    <label>나이수정<input type="text" name="age" id="age"></label>
+                    <button onclick="getInform();">수정</button>
+                </form>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <form action="/delete" method="delete">
+                    <input type="submit" value="삭제">
+                </form>
+            </td>
+        </tr>
+    </table>
+    <script src='/REST_API/restFront.js'></script>
+    
+   
+   
+</body>
+</html>
