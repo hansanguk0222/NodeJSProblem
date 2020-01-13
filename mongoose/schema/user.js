@@ -8,7 +8,7 @@ const userSchema = new Schema({
     hashedPassword: {type: String , require: true},
     school: {type: String, require: true},
     age: {type: Number, require: true},
-    nickName: {type: String, require: true},
+    nickname: {type: String, require: true},
 });
 
 module.exports = mongoose.model('user', userSchema);

@@ -2,13 +2,13 @@ const express = require('express');
 const crypto = require('crypto');
 const User = require('../schema/user.js');
 
-const app = exrpess();
+const app = express();
 const router = express.Router();
 
 app.use('/', router);
 
 function makePassword(password) {
-    const todayRand = Math.round((new Date().valueOf() * Math.random()));
+    const todayRand = String(Math.round((new Date().valueOf() * Math.random())));
     password = crypto.createHmac('sha512', todayRand).update(password).digest('hex');
     return password;
 }
@@ -16,7 +16,8 @@ function makePassword(password) {
 router.route('/join-user').post(async (req, res) => {
     try {
         //이름, 이메일, 비밀번호, 학교, 나이, 닉네임
-        const password = makePassword(req.body.password);
+        console.log('/join-user 실행');
+        const password = await makePassword(req.body.password);
         const user = await User({
             name: req.body.name,
             email: req.body.email,
@@ -26,6 +27,10 @@ router.route('/join-user').post(async (req, res) => {
             nickname: req.body.nickname
         });
         user.save();
+        res.writeHead('200', {'Content-Type':'text/html; charset=utf-8'});
+        res.write(`로그인 완료`);
+        res.write(`<p><a href='/show/home.html'>홈 화면으로 돌아가기</a></p>`);
+        res.end();
     }
     catch(err) {
         throw err;
@@ -54,4 +59,5 @@ router.route('/delete-user').delete(async (req, res) => {
         throw err;
     }
 })
-exports.module = router;
+
+module.exports = router;
