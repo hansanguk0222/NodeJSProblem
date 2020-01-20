@@ -6,20 +6,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Search</title>
+    <title>Upload</title>
 </head>
 
 <body>
     <div>
-        <form action="/search" method="GET">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
             <div>
                 <label>아이디 : <input type="text" id="uploadID"></label>
             </div>
             <div>
-                <label>파일 업로드 : <input type="file" id="uploadfile"></label>
+                <label>파일 업로드 : <input type="file" id="uploadfile" name="user_file"></label>
             </div>
             <div>
-                <button onclick="uploadFile();">검색</button>
+                <input type="submit">
+                <!-- <button onclick="uploadFile();">검색</button> -->
             </div>
         </form>
     </div>

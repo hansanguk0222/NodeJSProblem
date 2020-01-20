@@ -31,4 +31,4 @@ function connectDB() {
     })
 }
 
-module.exports = database;
+module.exports = connectDB();
