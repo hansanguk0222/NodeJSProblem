@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>데이터베이스</title>
+</head>
+
+<body>
+    <div>
+        <p>Create</p>
+        <p>
+            <label>작가<input type="text" id="CreateAuthor"></label>
+            <label>제목<input type="text" id="CreateTitle"></label>
+            <label>가격<input type="text" id="CreateCost"></label>
+            <button onclick="Create()">제출</button>
+        </p>
+    </div>
+    <br>
+    <div>
+        <p>Read</p>
+        <p>
+            <label>작가<input type="text" id="ReadfindAuthor"></label>
+            <button onclick="ReadAuthor()">제출</button>
+        </p>
+    </div>
+    <br>
+    <div>
+        <p>Update</p>
+        <p>
+            <label>제목<input type="text" id="UpdateTitle"></label>
+            <label>가격<input type="text" id="UpdateCost"></label>
+            <button onclick="Update()">제출</button>
+        </p>
+    </div>
+    <br>
+    <div>
+        <p>Delete</p>
+        <p>
+            <label>제목<input type="text" id="DeleteTitle"></label>
+            <button onclick="Delete()">제출</button>
+        </p>
+    </div>
+    <script src="front.js"></script>
+</body>
+
+</html>
